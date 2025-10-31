@@ -223,6 +223,15 @@ io.on('connection', (socket) => {
          callback({status:"500", message: data + " importFile: " + err});
       }
    });
+
+   /////////////////// TEST ///////////////////////////
+   socket.onAny((event, data) => {
+      console.log('got Event:', event, data, socket.id);
+   });
+
+   socket.onAnyOutgoing((event, data) => {
+      console.log('send Event:', event, data, socket.id);
+   });
 });
 
 /////////////////////////////////////////////////
